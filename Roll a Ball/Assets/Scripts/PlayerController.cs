@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
+	public Text countText;
+	public Text winText;
 
 	private Rigidbody rb;
+	private int count;
 
 	// Use this for initialization
 	void Start () 
 	{
 		// Gets rigidbody component from owner of PlayerController
 		rb = GetComponent<Rigidbody> ();
+
+		count = 0;
+		SetCountText ();
+		winText.text = "";
 	}
 	
 	// Update is called once per frame
@@ -31,5 +39,23 @@ public class PlayerController : MonoBehaviour {
 
 		rb.AddForce (movement * speed);
 	}
-		
+
+	void OnTriggerEnter(Collider other) 
+	{
+		if (other.gameObject.CompareTag ("Pick Up")) 
+		{
+			other.gameObject.SetActive (false);
+			count += 1;
+			SetCountText ();
+		}
+	}
+
+	void SetCountText ()
+	{
+		countText.text = "Score: " + count.ToString ();
+		if (count >= 8) 
+		{
+			winText.text = "You Win!";
+		}
+	}
 }
