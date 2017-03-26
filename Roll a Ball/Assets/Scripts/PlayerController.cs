@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
-	public Text countText;
+	public Text scoreText;
 	public Text winText;
 
 	private Rigidbody rb;
-	private int count;
+	private int score;
 
 	// Use this for initialization
 	void Start () 
@@ -18,15 +18,9 @@ public class PlayerController : MonoBehaviour {
 		// Gets rigidbody component from owner of PlayerController
 		rb = GetComponent<Rigidbody> ();
 
-		count = 0;
-		SetCountText ();
+		score = 0;
+		SetScoreText ();
 		winText.text = "";
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
 	}
 
 	// Update is called just before a physics calculation is performed
@@ -45,17 +39,17 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Pick Up")) 
 		{
 			other.gameObject.SetActive (false);
-			count += 1;
-			SetCountText ();
+			score += 1;
+			SetScoreText ();
 		}
 	}
 
-	void SetCountText ()
+	void SetScoreText ()
 	{
-		countText.text = "Score: " + count.ToString ();
-		if (count >= 8) 
+		scoreText.text = "Score: " + score.ToString ();
+		if (score >= 8) 
 		{
-			winText.text = "You Win!";
+			winText.text = "You Won!";
 		}
 	}
 }
