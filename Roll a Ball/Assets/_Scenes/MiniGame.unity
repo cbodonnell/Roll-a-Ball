@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0371385550a814965a6818d0f624cc4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitTime: 60
+  orbitTime: 180
 --- !u!1 &141054516
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0371385550a814965a6818d0f624cc4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitTime: 60
+  orbitTime: 180
 --- !u!108 &945704150
 Light:
   m_ObjectHideFlags: 0
